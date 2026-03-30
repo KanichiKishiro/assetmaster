@@ -40,7 +40,30 @@
 
 ---
 
-## セットアップ手順
+## デプロイ（本番公開 / 別PCから使う）
+
+ローカル環境を作らずにブラウザだけで使いたい場合は **Vercel** へのデプロイが最も簡単です。
+
+### Vercel へのデプロイ手順
+
+1. [vercel.com](https://vercel.com) で GitHub アカウントと連携してサインアップ
+2. ダッシュボード → **Add New → Project** → このリポジトリを選択
+3. 「Environment Variables」に以下を入力
+
+   ```
+   NEXT_PUBLIC_SUPABASE_URL      = https://xxxx.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJ...
+   ```
+
+4. **Deploy** ボタンを押す（数分で完了）
+5. 発行された URL（例: `https://your-app.vercel.app`）をブラウザで開く
+6. `/auth/register` から新規アカウントを作成して利用開始
+
+> Supabase の RLS によりユーザーデータは完全に分離されるため、同じ Supabase プロジェクトを複数人で共有できます。
+
+---
+
+## ローカルセットアップ手順
 
 ### 1. リポジトリのクローン
 

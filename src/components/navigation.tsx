@@ -17,6 +17,8 @@ const navItems = [
 export function Navigation() {
   const pathname = usePathname()
 
+  if (pathname.startsWith('/auth')) return null
+
   return (
     <aside className="w-56 shrink-0 border-r border-zinc-800 bg-zinc-950 flex flex-col">
       <div className="flex items-center gap-2 px-5 py-4 border-b border-zinc-800">

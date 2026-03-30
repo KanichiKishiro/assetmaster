@@ -34,8 +34,9 @@ export async function updateSession(request: NextRequest) {
   }
 
   const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
+  const isPublicPage = ['/terms', '/privacy'].includes(request.nextUrl.pathname)
 
-  if (!user && !isAuthPage) {
+  if (!user && !isAuthPage && !isPublicPage) {
     const url = request.nextUrl.clone()
     url.pathname = '/auth/login'
     return NextResponse.redirect(url)
